@@ -6,7 +6,8 @@
 
 #usage
 
-```fis-conf.js
+```javascript
+//fis-conf.js
 fis.hook('cmdpack');
 fis.match('modules/**', {
     cmdpack: true,
@@ -21,4 +22,4 @@ fis.match('cal.js', {
 
 #example
 
-See example.
+See [example](https://github.com/lwdgit/fis3-hook-cmdpack/tree/master/example).
