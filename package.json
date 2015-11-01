@@ -1,0 +1,27 @@
+{
+  "name": "fis3-hook-cmdpack",
+  "version": "1.0.0",
+  "description": "A fis3 plugin to wrap cmd to amd & DO NOT NEED require.js",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lwdgit/fis3-hook-cmdpack.git"
+  },
+  "keywords": [
+    "fis3",
+    "cmd",
+    "amd"
+  ],
+  "author": "lwdgit",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lwdgit/fis3-hook-cmdpack/issues"
+  },
+  "homepage": "https://github.com/lwdgit/fis3-hook-cmdpack#readme"
+}
