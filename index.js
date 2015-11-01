@@ -18,7 +18,10 @@ module.exports = function(fis, opts) {
             }
         }
     });
-  
+    
+    fis.on('release:end', function() {
+        pack = {};
+    });
 
     fis.on('compile:postprocessor', function(file) {
         
