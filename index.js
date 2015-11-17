@@ -3,8 +3,9 @@ var path = require('path');
 
 module.exports = function(fis, opts) {
 
-    //var settings = opts || {};
-    //var root = fis.project.getProjectPath();
+    var settings = opts || {};
+    settings.tab = settings.tab && !isNaN(settings.tab) ? ' '.repeat(settings.tab) : '    ';//设置缩进数
+    
     var defineWrap = snippets('defineWrap'),
     mod = snippets('mod');
 
@@ -14,7 +15,7 @@ module.exports = function(fis, opts) {
             pack[info.pkg.id] = true;
             if (info.file.cmdpack) {//如果设置的cmdpack字段
                 //将define require加在pack最前面
-                info.content = mod + ';' + info.content; 
+                info.content = mod + '\n' + info.content; 
             }
         }
     });
@@ -26,8 +27,9 @@ module.exports = function(fis, opts) {
     fis.on('compile:postprocessor', function(file) {
         
         if (file.cmdpack) {
-            var content = defineWrap.replace(/\$id/, file.url).replace(/\$content/, file.getContent());
-
+            var content = settings.tab + file.getContent().split(/\r\n|\n|\r/).join('\n' + settings.tab);//添加缩进
+            content = defineWrap.replace(/\$id/, file.url).replace(/\$content/, content);
+  
             //将相对路径id转绝对路径id
             content = content.replace(/\brequire\('([^']+)/g, function(str, id) {
                 id = path.join(file.subdirname, id).replace(/\\/g, '/');
